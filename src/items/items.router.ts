@@ -30,7 +30,7 @@ itemsRouter.get(
 
 // GET items/:id
 itemsRouter.get(
-  "/",
+  "/:id",
   async (req: Request, res: Response, next: NextFunction) => {
     const id: number = parseInt(req.params.id, 10);
     try {
