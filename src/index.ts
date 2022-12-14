@@ -24,6 +24,10 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
+app.use("/", (req, res, next) => {
+  res.send(`<h1>Boop</h1>`);
+});
+
 /**
  * Server Activation
  */
