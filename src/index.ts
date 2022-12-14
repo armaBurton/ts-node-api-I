@@ -6,8 +6,11 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import { itemsRouter } from "./items/items.router";
+import { errorHandler } from "./middleware/error.middleware";
+import { notFoundHandler } from "./middleware/not-found.middleware";
 
 dotenv.config();
+
 /**
  * App Variables
  */
@@ -28,6 +31,9 @@ app.use("/api/menu/items", itemsRouter);
 app.use("/", (req, res, next) => {
   res.send(`<h1>Boop</h1>`);
 });
+
+app.use(errorHandler);
+app.use(notFoundHandler);
 
 /**
  * Server Activation
