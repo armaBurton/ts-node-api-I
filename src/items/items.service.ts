@@ -48,3 +48,22 @@ export const create = async (newItem: BaseItem): Promise<Item> => {
 
   return items[id];
 };
+export const update = async (
+  id: number,
+  itemUpdate: BaseItem
+): Promise<Item | null> => {
+  const item = await find(id);
+
+  !item && null;
+
+  items[id] = { id, ...itemUpdate };
+
+  return items[id];
+};
+export const remove = async (id: number): Promise<null | void> => {
+  const item = await find(id);
+
+  !item && null;
+
+  delete items[id];
+};
