@@ -28,10 +28,6 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/menu/items", itemsRouter);
-app.use("/", (req, res, next) => {
-  res.send(`<h1>Boop</h1>`);
-});
-
 app.use(errorHandler);
 app.use(notFoundHandler);
 
