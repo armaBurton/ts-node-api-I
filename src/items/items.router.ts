@@ -22,7 +22,7 @@ itemsRouter.get(
       const items: Item[] = await ItemService.findAll();
 
       res.status(200).send(items);
-    } catch (e) {
+    } catch (e: unknown) {
       next(e);
     }
   }
@@ -41,8 +41,8 @@ itemsRouter.get(
       }
 
       res.status(404).send("item not found");
-    } catch (e) {
-      res.status(500).send(e.message);
+    } catch (e: unknown) {
+      next(e);
     }
   }
 );
@@ -56,7 +56,7 @@ itemsRouter.post(
       const newItem = await ItemService.create(item);
 
       res.status(201).send(newItem);
-    } catch (e) {
+    } catch (e: unknown) {
       next(e);
     }
   }
@@ -80,7 +80,7 @@ itemsRouter.put(
       const newItem = await ItemService.create(itemUpdate);
 
       res.status(201).json(newItem);
-    } catch (e) {
+    } catch (e: unknown) {
       next(e);
     }
   }
@@ -94,7 +94,7 @@ itemsRouter.delete(
       await ItemService.remove(id);
 
       res.sendStatus(204);
-    } catch (e) {
+    } catch (e: unknown) {
       next(e);
     }
   }
