@@ -31,3 +31,6 @@ app.use("/", (req, res, next) => {
 /**
  * Server Activation
  */
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
+});
